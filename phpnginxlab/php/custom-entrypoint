@@ -1,0 +1,8 @@
+echo "generating configuration files"
+FILES=/tmp/conf/*
+for f in $FILES
+do
+  c=$(basename $f .tmp)
+  echo "... $c"
+  envsubst < $f > /var/www/html/conf/${c}
+done
